@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+# <<<<<<< 470f426e5b70032e3aa12238e483a9ae085aaa02
+  # before_save {self.email = email.downcase}
+  before_save :downcase_email
+  before_create :create_activation_digest
   attr_accessor :remember_token, :activation_token, :reset_token
 
   has_many :microposts, dependent: :destroy
@@ -7,16 +11,13 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  before_save :downcase_email
-  before_create :create_activation_digest
-
-  before_save {self.email = email.downcase}
-
+# =======
+# >>>>>>> Modeling user
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}
+# <<<<<<< 470f426e5b70032e3aa12238e483a9ae085aaa02
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
-
   has_secure_password
 
   def User.digest(string)
@@ -85,4 +86,8 @@ class User < ApplicationRecord
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
+# =======
+
+  # has_secure_password
+# >>>>>>> Modeling user
 end

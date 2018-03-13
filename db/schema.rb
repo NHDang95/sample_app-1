@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20180417085155) do
-
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
@@ -21,7 +20,6 @@ ActiveRecord::Schema.define(version: 20180417085155) do
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -31,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180417085155) do
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
-
+ActiveRecord::Schema.define(version: 20180313145512) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -46,5 +44,4 @@ ActiveRecord::Schema.define(version: 20180417085155) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
   end
-
 end

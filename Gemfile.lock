@@ -349,7 +349,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (= 3.1.11)
+// <<<<<<< 470f426e5b70032e3aa12238e483a9ae085aaa02
+  // bcrypt (= 3.1.11)
+// =======
+  bcrypt (~> 3.1.7)
+// >>>>>>> Modeling user
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
   byebug

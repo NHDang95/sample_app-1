@@ -21,7 +21,11 @@ gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+#<<<<<<< 470f426e5b70032e3aa12238e483a9ae085aaa02
 gem "will_paginate", "3.1.5"
+#=======
+# gem "bcrypt", "~> 3.1.7"
+#>>>>>>> Modeling user
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
